@@ -1,0 +1,17 @@
+# .github/workflows/scheduled-builds.yml
+name: Check CGE appointments
+
+on:
+  schedule:
+    # https://crontab.guru
+    - cron: "*/5 9-18 * * 1-5"
+jobs:
+  build:
+    name: Check new appointments date
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: node dist/index.js
+        env:
+          BOT_KEY: ${{ secrets.BOT_KEY }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
