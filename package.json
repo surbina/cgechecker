@@ -6,6 +6,7 @@
   "author": "Sebastian Urbina <sebita.urbina@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node ./dist/index.js",
     "build": "tsup src/index.ts",
     "prepare": "husky install"
   },
