@@ -6,7 +6,7 @@ const { BOT_KEY, CHAT_ID, PROXIMA_APERTURA } = process.env;
 
 async function main() {
   console.log('Comenzando chequeo');
-  
+
   const browser = await chromium.launch();
   const page = await browser.newPage();
   await page.goto(URL);
