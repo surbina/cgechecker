@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run script
-        run: node dist/index.js
+        run: node ./dist/index.js
         env:
           BOT_KEY: ${{ secrets.BOT_KEY }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
