@@ -14,13 +14,14 @@ async function main() {
   const filaNacimientos = page.locator('tbody').locator('tr').nth(19);
   const nombreTramite = await filaNacimientos.locator('td').nth(0).textContent();
   const ultimaApertura = await filaNacimientos.locator('td').nth(1).textContent();
-  const proximaApertura = await filaNacimientos.locator('td').nth(2).textContent();
+  const proximaApertura = (await filaNacimientos.locator('td').nth(2).textContent())?.trim();
   
   console.log('Tramite: ', nombreTramite);
   console.log('Ultima apertura: ', ultimaApertura);
   console.log('Proxima apertura: ', proximaApertura);
+  console.log('CONF PROX AP: ', PROXIMA_APERTURA?.trim());
 
-  if (proximaApertura && proximaApertura !== PROXIMA_APERTURA) {
+  if (proximaApertura && proximaApertura !== PROXIMA_APERTURA?.trim()) {
     console.log('#################################');
     console.log('## Nuevas fechas se acercan :D ##');
     console.log('#################################');
