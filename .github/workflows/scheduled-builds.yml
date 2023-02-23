@@ -19,3 +19,4 @@ jobs:
         env:
           BOT_KEY: ${{ secrets.BOT_KEY }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+          PROXIMA_APERTURA: ${{ vars.PROXIMA_APERTURA }}
