@@ -27,6 +27,7 @@ var import_isomorphic_unfetch = __toESM(require("isomorphic-unfetch"));
 var URL = "https://www.cgeonline.com.ar/informacion/apertura-de-citas.html";
 var { BOT_KEY, CHAT_ID, PROXIMA_APERTURA } = process.env;
 async function main() {
+  var _a;
   console.log("Comenzando chequeo");
   const browser = await import_playwright.chromium.launch();
   const page = await browser.newPage();
@@ -34,11 +35,12 @@ async function main() {
   const filaNacimientos = page.locator("tbody").locator("tr").nth(19);
   const nombreTramite = await filaNacimientos.locator("td").nth(0).textContent();
   const ultimaApertura = await filaNacimientos.locator("td").nth(1).textContent();
-  const proximaApertura = await filaNacimientos.locator("td").nth(2).textContent();
+  const proximaApertura = (_a = await filaNacimientos.locator("td").nth(2).textContent()) == null ? void 0 : _a.trim();
   console.log("Tramite: ", nombreTramite);
   console.log("Ultima apertura: ", ultimaApertura);
   console.log("Proxima apertura: ", proximaApertura);
-  if (proximaApertura && proximaApertura !== PROXIMA_APERTURA) {
+  console.log("CONF PROX AP: ", PROXIMA_APERTURA == null ? void 0 : PROXIMA_APERTURA.trim());
+  if (proximaApertura && proximaApertura !== (PROXIMA_APERTURA == null ? void 0 : PROXIMA_APERTURA.trim())) {
     console.log("#################################");
     console.log("## Nuevas fechas se acercan :D ##");
     console.log("#################################");
