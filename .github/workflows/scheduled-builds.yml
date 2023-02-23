@@ -4,7 +4,7 @@ name: Check CGE appointments
 on:
   schedule:
     # https://crontab.guru
-    - cron: "*/5 * * * 1-5"
+    - cron: "0,30,50 * * * 1-5"
 jobs:
   build:
     name: Check new appointments date
