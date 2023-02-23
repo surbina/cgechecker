@@ -1,0 +1,20 @@
+{
+  "name": "cgechecker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:surbina/cgechecker.git",
+  "author": "Sebastian Urbina <sebita.urbina@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "tsup": "^6.6.3",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "isomorphic-unfetch": "^4.0.2",
+    "playwright": "^1.31.0"
+  }
+}
